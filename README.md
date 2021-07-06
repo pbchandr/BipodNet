@@ -29,9 +29,10 @@ Gene Regulatory Network (GRN) and eQTL-gene linkage are used as the biologial ma
 
 ## Usage
 BipodNet can be trained by running the following command:
-'''
+
+```
 python bipodnet_train.py --gex_obs='/path_to_rna_seq_csv_file' --grn_adj='/path_to_grn_npz_file' --snp_obs='/path_to_snp_dosage__csv_file' --eqtl_adj='/path_to_eqtl_npz_file'
-'''
+```
 
 The above code runs the default settings for training. Additional parameters can be given to the above code. The parameters involved are:
 * **num_fc_layers** = Number of fully conencted network layers. Default is 2 layers.
