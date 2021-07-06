@@ -9,4 +9,10 @@ All sample data can be accessed [here](https://uwmadison.box.com/s/as518bcuttpkd
 If you have your own data, please use the following guide to prepare the data.
 
 ### Preparing RNA-seq data
+The cript requires a csv file that contains gene expression data where the rows are the samples and the columns are the genes
 
+### Preparing Genotype data
+The model uses the dosage information for SNP coordinates. The rows are the samples  and the columns are the SNP dosage information.
+
+### Preparing intermediate layer
+Gene Regulatory Network (GRN) and eQTL-gene linkage are used as the biologial masking intermediate layer that guides the activation units in the neural network model.
