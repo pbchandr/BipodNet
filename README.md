@@ -4,7 +4,7 @@ BipodNet/BipodNN is a multi-view **B**iology **I**nduced Neural **Net**work for 
 
 ![BipodNet Architecture](https://user-images.githubusercontent.com/18314073/124612169-bc616880-de37-11eb-969a-16dc36ca0767.png)
 
-
+In the above architecture, the link between the input layer and the gene layer is controleld by activations from GRN and eQTL. This is depicted by the red and green lines where the green lines depict activations and red lines represents no activation.
 
 ## Dependencies
 The script is based on python 3.4 above and requires the following packages:
