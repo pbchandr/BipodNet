@@ -35,6 +35,6 @@ python bipodnet_train.py --gex_obs='/path_to_rna_seq_csv_file' --grn_adj='/path_
 ```
 
 The above code runs the default settings for training. Additional parameters can be given to the above code. The parameters involved are:
-* **num_fc_layers** = Number of fully conencted network layers. Default is 2 layers.
-* **num_fc_neurons** = Number of hidden units in each layer. Comma separated values in the form os string needs to be given. Default is '1000,500'
-* **dropout_keep_probability** = This is used to handle overfitting. Default is 0.5
+* **--num_fc_layers** = Number of fully conencted network layers. Default is 2 layers.
+* **--num_fc_neurons** = Number of hidden units in each layer. Comma separated values in the form os string needs to be given. Default is '1000,500'
+* **--dropout_keep_probability** = This is used to handle overfitting. Default is 0.5
