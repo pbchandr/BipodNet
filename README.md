@@ -27,5 +27,13 @@ The model uses the dosage information for SNP coordinates. The rows are the samp
 ### Preparing intermediate layer
 Gene Regulatory Network (GRN) and eQTL-gene linkage are used as the biologial masking intermediate layer that guides the activation units in the neural network model. To set up the GRN masking layer, an adjacency matrix is created where the rows are source genes and the columns are target genes. The gene names and the order must match the rna-seq input genes. Similarly, eqtl-gene adjacency is created. The eqtl ids and order should match the snp id from the genotype data. The script accepts an .npz format which contains the sprse matrix for both sources of data.
 
+## Usage
+BipodNet can be trained by running the following command:
+'''
+python bipodnet_train.py --gex_obs='/path_to_rna_seq_csv_file' --grn_adj='/path_to_grn_npz_file' --snp_obs='/path_to_snp_dosage__csv_file' --eqtl_adj='/path_to_eqtl_npz_file'
+'''
 
-
+The above code runs the default settings for training. Additional parameters can be given to the above code. The parameters involved are:
+* **num_fc_layers** = Number of fully conencted network layers. Default is 2 layers.
+* **num_fc_neurons** = Number of hidden units in each layer. Comma separated values in the form os string needs to be given. Default is '1000,500'
+* **dropout_keep_probability** = This is used to handle overfitting. Default is 0.5
