@@ -14,7 +14,7 @@ The script is based on python 3.4 above and requires the following packages:
 4. scikit-learn
 
 ## Data
-All sample data can be accessed [here](https://uwmadison.box.com/s/as518bcuttpkdonads64iriqfdd1aixl)
+All sample data can be accessed [here](http://resource.psychencode.org)
 
 If you have your own data, please use the following guide to prepare the data.
 
