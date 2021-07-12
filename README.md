@@ -2,7 +2,8 @@
 
 BipodNet/BipodNN is a multi-view **B**iology **I**nduced Neural **Net**work for **P**rediction **o**f **D**isease Phenotypes. It uses multi-modal data in the form of RNA-seq and genotype data to predict Schizophrenia samples. The intermediate layer is a biological masking gene layer in the form of EQTL and Gene Regulatory Network (GRN). We hypothesize that introducing biology will help in better phenotypic prediction and also helps in understanding the disease mechanisms better.
 
-![BipodNet Architecture](https://user-images.githubusercontent.com/18314073/124612169-bc616880-de37-11eb-969a-16dc36ca0767.png)
+<!--![BipodNet Architecture](https://user-images.githubusercontent.com/18314073/124612169-bc616880-de37-11eb-969a-16dc36ca0767.png)-->
+![bipodnet_architecture](https://user-images.githubusercontent.com/18314073/125307118-6425dd00-e2f5-11eb-9c6c-8829d5f6c0b0.png)
 
 In the above architecture, the link between the input layer and the gene layer is controlled by activations from GRN and eQTL. This is depicted by the red and green lines where the green lines depict activations and the red lines represent no activation.
 
