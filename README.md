@@ -1,12 +1,13 @@
 # BipodNet/BipodNN
 
-BipodNet/BipodNN is a multi-view **B**iology **I**nduced Neural **Net**work for **P**rediction **o**f **D**isease Phenotypes. It uses multi-modal data in the form of RNA-seq and genotype data to predict Schizophrenia samples. The intermediate layer is a biological masking gene layer in the form of EQTL and Gene Regulatory Network (GRN). We hypothesize that introducing biology will help in better phenotypic prediction and also helps in understanding the disease mechanisms better.
+BipodNet/BipodNN is a multi-view **B**iology **I**nduced Neural **Net**work for **P**rediction **o**f **D**isease Phenotypes. It uses multi-modal data to form a conenctino with intermediate phenotypes using activations guided by biology which is then used for prediction various diseases phenotypes. We hypothesize that introducing biology will help in better phenotypic prediction and also helps in understanding the disease mechanisms better.
 
 <!--![BipodNet Architecture](https://user-images.githubusercontent.com/18314073/124612169-bc616880-de37-11eb-969a-16dc36ca0767.png)-->
 ![bipodnet_architecture](https://user-images.githubusercontent.com/18314073/125308856-e19e1d00-e2f6-11eb-98e7-a3fdb711e3f7.png)
 
+In the above architecture, the link between the feature extraction layer and the drop-conenct layer is controlled by activations from biological prior. This is depicted by the red and green lines where the green lines depict activations and the red lines represent no activation.
 
-In the above architecture, the link between the input layer and the gene layer is controlled by activations from GRN and eQTL. This is depicted by the red and green lines where the green lines depict activations and the red lines represent no activation.
+For example, we can ghave RNA-seq and genotype data as inputs. The intermediate phenotypes can be a gene layer where the RNA-seq to gene layer can be linked using Gene Regulatory Network(GRN) and the genotype to gene can be linked using eQTL linkages from gtex.
 
 ## Dependencies
 The script is based on python 3.4 above and requires the following packages:
@@ -18,16 +19,7 @@ The script is based on python 3.4 above and requires the following packages:
 ## Data
 All sample data can be accessed [here](http://resource.psychencode.org)
 
-If you have your own data, please use the following guide to prepare the data.
-
-### Preparing RNA-seq data
-The script requires a .csv file that contains gene expression data where the rows are the samples and the columns are the genes
-
-### Preparing Genotype data
-The model uses the dosage information for SNP coordinates. The rows are the samples and the columns are the SNP dosage information.
-
-### Preparing intermediate layer
-Gene Regulatory Network (GRN) and eQTL-gene linkage are used as the biological masking intermediate layer that guides the activation units in the neural network model. To set up the GRN masking layer, an adjacency matrix is created where the rows are source genes and the columns are target genes. The gene names and the order must match the RNA-seq input genes. Similarly, eQTL-gene adjacency is created. The eQTL ids and order should match the SNP id from the genotype data. The script accepts a .npz format which contains the sparse matrix for both sources of data.
+If you have your own data, please prepare the data in a .csv format and provide the link to the file location while training the model. Please note that the number and order of features form a module in the input layer should match that in the drop connect layer.
 
 ## Usage
 BipodNet can be trained by running the following command:
