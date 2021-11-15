@@ -34,7 +34,7 @@ BipodNet can be trained by running the following command:
 python MVNetTrain.py --num_data_modal=2 --input_files='/path_to_gene_exp_csv_file, /path_to_genotype_csv_file' --intermediate_phenotype_files='/path_to_grn_npz_file, /path_to_eqtl_npz_file' --disease_label_file='path_to_class_labels_csv_file' --save='/path_to_save_model'
 ```
 
-The above code runs the default settings for training. Additional parameters can be given to the above code. The parameters involved are:
+The above code runs the default settings for training. Additional settings that can ve included withthe above code are:
 * **--num_fc_layers** = number of fully conencted network layers. Default is 2 layers.
 * **--num_fc_neurons** = number of hidden units in each layer. Comma separated values in the form os string needs to be given. Default is '500,50'
 * **--fc_dropout_prob** = This is used to handle overfitting. Default is 0.5.
