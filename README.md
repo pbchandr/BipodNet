@@ -36,7 +36,7 @@ python MVNetTrain.py --num_data_modal=2 --input_files='/path_to_gene_exp_csv_fil
 
 The above code runs the default settings for training. Additional parameters can be given to the above code. The parameters involved are:
 * **--num_fc_layers** = number of fully conencted network layers. Default is 2 layers.
-* **--num_fc_neurons** = number of hidden units in each layer. Comma separated values in the form os string needs to be given. Default is '1000,500'
+* **--num_fc_neurons** = number of hidden units in each layer. Comma separated values in the form os string needs to be given. Default is '500,50'
 * **--fc_dropout_prob** = This is used to handle overfitting. Default is 0.5.
 * **--batch_size** = Batch size for training.
 * **--out_reg_lambda** = L2 regularization parameter
