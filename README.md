@@ -1,8 +1,9 @@
-# BipodNet/BipodNN
+# MVNet/DeepDICE
 
-BipodNet/BipodNN is a multi-view **B**iology **I**nduced Neural **Net**work for **P**rediction **o**f **D**isease Phenotypes. It uses multi-modal data to form a conenctino with intermediate phenotypes using activations guided by biology which is then used for prediction various diseases phenotypes. We hypothesize that introducing biology will help in better phenotypic prediction and also helps in understanding the disease mechanisms better. The intermeidate phenotypes can be shared across diffent modalities of the data (genes, cell-types, etc) or can have each modal-specific phenotype (one mode can have genes as the intermediate phenotypes and another can have cell types).
+MVNet/DeepDICE is a multi-view multi-modal **D**eep learning approach for **D**isese phenotype prediction by using **I**nternal **C**ross-modal **E**stimation. Our contributions are three-fold. Firstly, we present a deep learning framework that integrates genotype and gene expression data guided by prior biological knowledge in terms of QTLs and GRNs. Secondly, our framework can take in only one modality data and performs internal cross-modal estimation by learning linear transformations and uses the estimated values for disease prediction. Thirdly, we decipher the black box nature of the neural network architecture to identify and prioritize genes and SNPs that contribute towards disease onset. 
 
-<!--![BipodNet Architecture](https://user-images.githubusercontent.com/18314073/124612169-bc616880-de37-11eb-969a-16dc36ca0767.png)-->
+
+<!--![DeepDICE Architecture](https://user-images.githubusercontent.com/18314073/124612169-bc616880-de37-11eb-969a-16dc36ca0767.png)-->
 ![bipodnet_architecture](https://user-images.githubusercontent.com/18314073/125311395-fed3eb00-e2f8-11eb-9719-289f396bd496.png)
 
 In the above architecture, the link between the feature extraction layer and the drop-conenct layer is controlled by activations from biological prior. This is depicted by the red and green lines where the green lines depict activations and the red lines represent no activation.
