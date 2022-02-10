@@ -1,6 +1,6 @@
-# MVNet/DeepDICE
+# DeepDICE
 
-DeepDICE is a multi-view multi-modal **D**eep learning approach for **D**isese phenotype prediction by using **I**nternal **C**ross-modal **E**stimation. Our contributions are three-fold. Firstly, we present a deep learning framework that integrates genotype and gene expression data guided by prior biological knowledge in terms of QTLs and GRNs. Secondly, our framework can take in only one modality data and performs internal cross-modal estimation by learning linear transformations and uses the estimated values for disease prediction. Thirdly, we decipher the black box nature of the neural network architecture to identify and prioritize genes and SNPs that contribute towards disease onset. 
+DeepDICE is a multi-view multi-modal **D**eep learning approach for **D**isese phenotype prediction by using **I**nternal **C**ross-modal **E**stimation. Our contributions are three-fold. Firstly, we present a deep learning framework that integrates genotype and gene expression data guided by prior biological knowledge in terms of QTLs and GRNs. Secondly, our framework can take in only one modality data and performs internal cross-modal estimation by learning linear transformations and uses the estimated values for disease prediction. Thirdly, we decipher the black box nature of the neural network architecture to prioritize genes and SNPs that contribute towards disease onset. 
 
 
 <!--![DeepDICE Architecture](https://user-images.githubusercontent.com/18314073/124612169-bc616880-de37-11eb-969a-16dc36ca0767.png)-->
@@ -12,7 +12,7 @@ DeepDICE is a multi-view multi-modal **D**eep learning approach for **D**isese p
 
 ## Dependencies
 The script is based on python 3.4 above and requires the following packages:
-1. tensorflow: v1.14 (cpu) or v1.10(gpu)
+1. pytorch: v1.4.0  (cpu) or v1.10.0(gpu)
 2. scipy
 3. numpy
 4. scikit-learn
@@ -21,8 +21,8 @@ The script is based on python 3.4 above and requires the following packages:
 The model requires 5 inputs:
 1. Gene Expression data (p samples by m genes)
 2. Genotype data (p samples by n snps)
-3. Gene Regulatory Networks (GRNs)
-4. expression Quantitavie Trait Loci (eQTLs)
+3. Gene Regulatory Networks (GRNs, m genes by k genes)
+4. expression Quantitavie Trait Loci (eQTLs, m snps by k genes)
 5. Disease phenotype
 
 All sample data can be accessed [here](http://resource.psychencode.org)
@@ -30,18 +30,23 @@ All sample data can be accessed [here](http://resource.psychencode.org)
 If you have your own data, please prepare the data in a .csv format and use the MVNetPreprocess.py to extract the required files for training.
 
 ## Usage
-BipodNet can be trained by running the following command:
+DeepDice has two versions of the code:
+* DeepDiceMVTrain - This version takes in two modalities as input for disease prediction and can be trained using the following command:
 
 ```
-python MVNetTrain.py --num_data_modal=2 --input_files='/path_to_gene_exp_csv_file, /path_to_genotype_csv_file' --intermediate_phenotype_files='/path_to_grn_npz_file, /path_to_eqtl_npz_file' --disease_label_file='path_to_class_labels_csv_file' --save='/path_to_save_model'
+python -u DeepDiceMVTrain.py --input_files='/path_to_gene_exp_csv_file, /path_to_genotype_csv_file' --intermediate_phenotype_files='/path_to_grn_npz_file, /path_to_eqtl_npz_file' --disease_label_file='path_to_class_labels_csv_file' --save= '/path_to_save_model' > '/path_to_output.txt'
 ```
 
 The above code runs the default settings for training. Additional settings that can ve included withthe above code are:
-* **--num_fc_layers** = number of fully conencted network layers. Default is 2 layers.
-* **--num_fc_neurons** = number of hidden units in each layer. Comma separated values in the form os string needs to be given. Default is '500,50'
-* **--fc_dropout_prob** = This is used to handle overfitting. Default is 0.5.
-* **--batch_size** = Batch size for training.
-* **--out_reg_lambda** = L2 regularization parameter
-* **--learn_rate** = Learning rate for the model.
-* **--corr_reg_lambda** = Regularization parameter for the cross-modal estimation loss.
-* **--cross-validate** = This is a flag which performs 5-fold CV when enabled
+* **--model_type** = This parameter determines whether to use biological drop connection for the first transparent layer or fully connected network. (default = 'drop_connect').
+* **--latent_dim** = This parameter is used to specify the number of hidden nodes in the transparent layer if the model type is fully conencted network (default = 500).
+* **--num_fc_layers** = Number of fully conencted network layers (default = 2).
+* **--num_fc_neurons** = Number of hidden units in each layer following the transparent layer. Comma separated values needs to be given (default = '500,50').
+* **--dropout_keep_prob** = This is used to handle overfitting (default = 0.5).
+* **--normalize** = Feature normalization versus sample normalization (default = 'features').
+* **--type_of_norm** = CHoose between standard and minmax normalization (default = 'standard').
+* **--batch_size** = Batch size for training (default = 30).
+* **--learn_rate** = Learning rate for the model (default = 0.001). 
+* **--out_reg** = L2 regularization parameter (default = 0.005).
+* **--corr_reg** = Regularization parameter for the cross-modal estimation loss (default = 0.5).
+* **--cross-validate** = This is a flag which performs 5-fold CV when enabled ((default = False).
