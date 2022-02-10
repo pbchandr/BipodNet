@@ -31,13 +31,13 @@ If you have your own data, please prepare the data in a .csv format and use the 
 
 ## Usage
 DeepDice has two versions of the code:
-* DeepDiceMVTrain - This version takes in two modalities as input for disease prediction and can be trained using the following command:
+1. DeepDiceMVTrain - This version takes in two modalities as input for disease prediction and can be trained using the following command:
 
 ```
 python -u DeepDiceMVTrain.py --input_files='/path_to_gene_exp_csv_file, /path_to_genotype_csv_file' --intermediate_phenotype_files='/path_to_grn_npz_file, /path_to_eqtl_npz_file' --disease_label_file='path_to_class_labels_csv_file' --save= '/path_to_save_model' > '/path_to_output.txt'
 ```
 
-The above code runs the default settings for training. Additional settings that can ve included withthe above code are:
+The above code runs the default settings for training. Additional settings that can be included along with the above code are:
 * **--model_type** = This parameter determines whether to use biological drop connection for the first transparent layer or fully connected network. (default = 'drop_connect').
 * **--latent_dim** = This parameter is used to specify the number of hidden nodes in the transparent layer if the model type is fully conencted network (default = 500).
 * **--num_fc_layers** = Number of fully conencted network layers (default = 2).
@@ -50,3 +50,11 @@ The above code runs the default settings for training. Additional settings that 
 * **--out_reg** = L2 regularization parameter (default = 0.005).
 * **--corr_reg** = Regularization parameter for the cross-modal estimation loss (default = 0.5).
 * **--cross-validate** = This is a flag which performs 5-fold CV when enabled ((default = False).
+
+
+2. DeepDiceSVTrain - This version takes in only one input modality for disease prediction and can be trained using the following command:
+
+```
+python -u DeepDiceMVTrain.py --obs='/path_to_input_csv_file' --adj_file='/path_to_adjacency_npz_file' --label_file='path_to_class_labels_csv_file' --save= '/path_to_save_model' > '/path_to_output.txt'
+```
+ All additional parameters are the same as the DeepDiceMVTrain version except for --corr_reg which doesn't exist in this version.
