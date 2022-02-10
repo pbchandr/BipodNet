@@ -1,11 +1,13 @@
 # MVNet/DeepDICE
 
-MVNet/DeepDICE is a multi-view multi-modal **D**eep learning approach for **D**isese phenotype prediction by using **I**nternal **C**ross-modal **E**stimation. Our contributions are three-fold. Firstly, we present a deep learning framework that integrates genotype and gene expression data guided by prior biological knowledge in terms of QTLs and GRNs. Secondly, our framework can take in only one modality data and performs internal cross-modal estimation by learning linear transformations and uses the estimated values for disease prediction. Thirdly, we decipher the black box nature of the neural network architecture to identify and prioritize genes and SNPs that contribute towards disease onset. 
+DeepDICE is a multi-view multi-modal **D**eep learning approach for **D**isese phenotype prediction by using **I**nternal **C**ross-modal **E**stimation. Our contributions are three-fold. Firstly, we present a deep learning framework that integrates genotype and gene expression data guided by prior biological knowledge in terms of QTLs and GRNs. Secondly, our framework can take in only one modality data and performs internal cross-modal estimation by learning linear transformations and uses the estimated values for disease prediction. Thirdly, we decipher the black box nature of the neural network architecture to identify and prioritize genes and SNPs that contribute towards disease onset. 
 
 
 <!--![DeepDICE Architecture](https://user-images.githubusercontent.com/18314073/124612169-bc616880-de37-11eb-969a-16dc36ca0767.png)-->
 <!--![bipodnet_architecture](https://user-images.githubusercontent.com/18314073/125311395-fed3eb00-e2f8-11eb-9719-289f396bd496.png)-->
-![mvnet_arch](https://user-images.githubusercontent.com/18314073/141710663-6184ebd6-90e3-49cf-81a8-1c5d99f1a055.png)
+<!--![mvnet_arch](https://user-images.githubusercontent.com/18314073/141710663-6184ebd6-90e3-49cf-81a8-1c5d99f1a055.png) -->
+![deepdice_architecture](https://user-images.githubusercontent.com/18314073/153448583-004a6414-00c1-4e5a-8296-96d65b312583.png)
+
 
 
 ## Dependencies
