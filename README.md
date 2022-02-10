@@ -27,7 +27,7 @@ The model requires 5 inputs:
 
 All sample data can be accessed [here](http://resource.psychencode.org)
 
-If you have your own data, please prepare the data in a .csv format and use the MVNetPreprocess.py to extract the required files for training.
+If you have your own data, please prepare the data in a .csv format and use the DeepDicePreprocess.py to extract the required files for training.
 
 ## Usage
 DeepDice has two versions of the code:
