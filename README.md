@@ -55,6 +55,6 @@ The above code runs the default settings for training. Additional settings that 
 2. DeepDiceSVTrain - This version takes in only one input modality for disease prediction and can be trained using the following command:
 
 ```
-python -u DeepDiceMVTrain.py --obs='/path_to_input_csv_file' --adj_file='/path_to_adjacency_npz_file' --label_file='path_to_class_labels_csv_file' --save= '/path_to_save_model' > '/path_to_output.txt'
+python -u DeepDiceSVTrain.py --obs='/path_to_input_csv_file' --adj_file='/path_to_adjacency_npz_file' --label_file='path_to_class_labels_csv_file' --save= '/path_to_save_model' > '/path_to_output.txt'
 ```
  All additional parameters are the same as the DeepDiceMVTrain version except for --corr_reg which doesn't exist in this version.
